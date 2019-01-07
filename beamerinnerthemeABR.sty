@@ -1,0 +1,65 @@
+\mode<presentation>
+
+% make background for title frame, and set other frames to blank
+\setbeamertemplate{background}{
+    \begin{tikzpicture}
+        \useasboundingbox (0, 0) rectangle(\the\paperwidth, \the\paperheight);
+        \node[anchor=center, xshift=-2cm] at (0.5\paperwidth,0.5\paperheight)
+            {\includegraphics[height=\paperheight, width=1.8\paperwidth]
+            {title_slide.jpg}};
+        \ifnum\thepage>1\relax%
+            \fill[myWhite,opacity=1] (0,0) rectangle(\the\paperwidth,\the\paperheight);
+        \fi
+    \end{tikzpicture}
+
+}
+
+% make title frame
+\defbeamertemplate*{title page}{ABR}[1][]
+{
+    \vskip0.5cm%
+    \begin{beamercolorbox}[wd=0.9\paperwidth,#1]{}
+        \href{https://appliedbrainresearch.com/}
+        {\includegraphics[height=1.5cm]{ABR_logo.png}}%
+    \end{beamercolorbox}%
+    \vskip5.5cm%
+    \begin{beamercolorbox}[wd=0.9\paperwidth,right,#1]
+        {title}\usebeamerfont{title}\inserttitle\par%
+    \end{beamercolorbox}%
+    \vskip5pt%
+    \begin{beamercolorbox}[wd=0.9\paperwidth,right,#1]
+        {subtitle}\usebeamerfont{subtitle}\insertsubtitle\par%
+    \end{beamercolorbox}%
+
+}
+
+% Bullet shapes
+\setbeamertemplate{itemize item}[triangle]
+\setbeamertemplate{itemize subitem}{
+    \begin{tikzpicture}%
+        \draw (0,0.7ex) -- (0,0) -- (0.75em,0);
+        \draw (0.55em,0.2em) -- (0.75em,0) -- (0.55em,-0.2em);
+      \end{tikzpicture}%
+
+}
+\setbeamertemplate{enumerate subitem}{\alph{enumii}.}
+
+% Remove caption prefixes
+\setbeamertemplate{caption}{\raggedright\insertcaption\par}
+
+%automatically generate section frame
+\AtBeginSection{\frame{\sectionpage}}
+\defbeamertemplate*{section page}{ABR}[1][]
+{
+    \begin{tikzpicture}
+        \useasboundingbox (0, 0) rectangle(\the\paperwidth, \the\paperheight);
+        \node[anchor=center, xshift=-0.5cm, yshift=-0.3cm, opacity=0.65] at
+            (0.5\paperwidth,0.5\paperheight)
+            {\includegraphics[height=\the\paperheight, width=0.75\paperwidth]
+            {section_slide.png}};%
+        \node[anchor=center, font=\usebeamerfont{sectiontitle}, myDBlue] at
+            (0.5\linewidth,0.5\paperheight)
+            {\let\hyperlink\@secondoftwo\centering\insertsection};
+    \end{tikzpicture}
+
+}

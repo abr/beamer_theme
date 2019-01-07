@@ -1,0 +1,70 @@
+\documentclass{beamer}
+\usepackage{blindtext}
+\usepackage{graphicx}
+
+\title[Short Title]{Longer Full Sample Title}
+\subtitle{Sample Subtitle}
+\author{Ben Morcos}
+\date{January 7, 2019}
+
+\usetheme{ABR}
+\begin{document}
+
+	\frame {
+		\titlepage
+	}
+
+	\section{First Section}
+
+	\frame {
+		\frametitle{Mathmode}
+		This is the quadratic equation:
+		\begin{align}
+			\frac{-b \pm \sqrt{b^2 - c}}{2a}
+		\end{align}
+	}
+	\frame{
+		\frametitle{Some bullet points}
+		\framesubtitle{And a list!}
+		\begin{itemize}
+			\item 1
+			\begin{itemize}
+				\item 1.1
+			\end{itemize}
+			\item 2
+			\item 3
+		\end{itemize}
+
+		Text between? \\
+
+		Why not.
+
+		\begin{enumerate}
+			\item A thing
+			\begin{enumerate}
+				\item A related thing
+				\item \alert{An important thing}
+			\end{enumerate}
+			\item Another thing
+		\end{enumerate}
+	}
+
+	\section{Another Section}
+
+	\frame{
+	    \frametitle{Paragraph Content}
+	    \framesubtitle{Latin is cool}
+	    \blindtext
+	}
+
+	\frame{
+		\frametitle{Figures}
+		\framesubtitle{With caption}
+		\begin{figure}
+			\centering
+	    	\includegraphics[height=0.6\textheight]{example-image}
+	    	\vspace{-10pt}
+	    	\caption{Built in examples are \alert{\textbf{genius}}}
+	    \end{figure}
+	}
+\end{document}
